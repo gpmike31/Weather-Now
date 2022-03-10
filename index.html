@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather Now</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="./assets/styles.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
 
-<body>
-    
-    <form id="form">
-        <input id="searchbar" type="text" />
-    </form>
-    <button type="submit" class="btn btn-success" form="form" value="Submit">Submit</button>
-        
-    <div class="row min-vh-100 no-gutters">
-        <main class="col-12 col-lg-9 d-flex flex-column ">
-            <div class="m-5 row justify-content-around">
-                <div class="col-12 col-md-6 col-xl-3 mb-3">
-                    <div class="card">
-                        <h4 class="card-header bg-dark text-light d-flex align-items-center">
-                        Your City
-                        </h4>
-                        <ul id="your-city" class="list-group list-group-flush"></ul>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="col-12 col-md-6 col-xl-3 mb-3">
-                    <div class="card">
-                        <h4 class="card-header bg-dark text-light d-flex align-items-center">
-                        Temperature
-                        </h4>
-                        <ul id="temperature" class="list-group list-group-flush"></ul>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="col-12 col-md-6 col-xl-3 mb-3">
-                    <div class="card">
-                        <h4 class="card-header bg-dark text-light d-flex align-items-center">
-                        Humidity
-                        </h4>
-                        <ul id="humidity" class="list-group list-group-flush"></ul>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="col-12 col-md-6 col-xl-3 mb-3">
-                    <div class="card">
-                        <h4 class="card-header bg-dark text-light d-flex align-items-center">
-                        Wind Speed
-                        </h4>
-                        <ul id="wind-speed" class="list-group list-group-flush"></ul>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 mb-3">
-                    <div class="card">
-                        <h4 class="card-header bg-dark text-light d-flex align-items-center">
-                        UV Index
-                        </h4>
-                        <ul id="uv-index" class="list-group list-group-flush"></ul>
-                    </div>
-                </div>
+  <body>
+    <div class="row col-12">
+      <div class="col-3" >
+        <form id="form">
+          <input id="searchbar" type="text" />
+        </form>
+        <button
+          type="submit"
+          class="btn btn-success"
+          form="form"
+          value="Submit"
+        >
+          Submit
+        </button>
+      </div>
+      <div class=" col-9 min-vh-100 no-gutters">
+        <div class="col-12 col-lg-9 d-flex flex-column">
+          <div id="currentWeather">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="https://openweathermap.org/img/wn/${element.weather[0].icon}.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">Temperature:${element.temp.max}</p>
+                <p class="card-text">Humidity:${element.humidity}</p>
+                <p class="card-text">Wind Speed:${element.wind_speed}</p>
+                <p class="card-text">UV Index:${element.uvi}</p>
+              </div>
             </div>
-        </main>
+          </div>
+          <div class="m-5 row justify-content-around fiveDay"></div>
+        </div>
+      </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="text/javascript" src="./assets/script.js"></script>
-</body>
+  </body>
+</html>
