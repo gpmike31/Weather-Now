@@ -28,50 +28,37 @@
     <link rel="stylesheet" href="./assets/styles.css" />
   </head>
 
-  <body>
-    <div class="row col-12">
-      <div class="col-3" >
-        <form id="form">
-          <input id="searchbar" type="text" />
-        </form>
-        <button
-          type="submit"
-          class="btn btn-success"
-          form="form"
-          value="Submit"
-        >
-          Submit
-        </button>
-      </div>
-      <div class=" col-9 min-vh-100 no-gutters">
-        <div class="col-12 col-lg-9 d-flex flex-column">
-          <div id="currentWeather">
-            <div class="card">
-              <img
-                class="card-img-top"
-                src="https://openweathermap.org/img/wn/${element.weather[0].icon}.png"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <p class="card-text">Temperature:${element.temp.max}</p>
-                <p class="card-text">Humidity:${element.humidity}</p>
-                <p class="card-text">Wind Speed:${element.wind_speed}</p>
-                <p class="card-text">UV Index:${element.uvi}</p>
-              </div>
-            </div>
-          </div>
-          <div class="m-5 row justify-content-around fiveDay"></div>
-        </div>
-      </div>
-    </div>
+<body>
+  <!--City name display upon search jumbotron-->
+  <div id="header" class="jumbotron jumbotron-fluid text-container">
+    <h1 id="header-text" class="display-2"></h1>
+    <div id="city-name-search"></div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script type="text/javascript" src="./assets/script.js"></script>
-  </body>
-</html>
+  <!--Container for main webpage content-->
+  <div id="content" class="container">
+    <div class="row">
+
+
+      <!-- City search container field -->
+      <div id="content-left" class="col-md-3">
+        <form>
+          <label for="city-search">City Search</label>
+          <div class="form-row">
+            <input id="city-search" class="form-control" name="city" value="Kansas City"><input>
+            <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+        <div id="search-error"></div>
+        <ul id="city-results" class="list-group mt-4"></ul>
+        <a id="clear-storage" href="#"></a>
+      </div>
+
+
+
+
+      
+  
+
+
+
