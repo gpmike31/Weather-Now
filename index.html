@@ -1,79 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Weather Now</title>
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-    rel="stylesheet"
-  />
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <link rel="stylesheet" href="./assets/styles.css" />
-</head>
+    <!-- <link rel="stylesheet" href="assets/styles.css"> -->
+  </head>
+  <body>
 
-<body>
-  <!--City name display upon search jumbotron-->
-  <div id="header" class="jumbotron jumbotron-fluid text-container">
-    <h1 id="header-text" class="display-2"></h1>
-    <div id="city-name-search"></div>
-  </div>
+    <div id="time"> </div>
 
-  <!--Container for main webpage content-->
-  <div id="content" class="container">
-    <div class="row">
+    <form id="form">
+      <input id="searchbar" type="text" />
+    </form>
+    <button type="submit" class="btn btn-success" form="form" value="Submit">Submit</button>
 
+    <div id="pastSearch"> </div>
 
-      <!-- City search container field -->
-      <div id="content-left" class="col-md-3">
-        <form>
-          <label for="city-search">City Search</label>
-          <div class="form-row">
-            <input id="city-search" class="form-control" name="city" value="Kansas City"><input>
-            <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-          </div>
-        </form>
-        <div id="search-error"></div>
-        <ul id="city-results" class="list-group mt-4"></ul>
-        <a id="clear-storage" href="#"></a>
-      </div>
-
-      <div id="content-right" class="col-md-11 pt-5">
-        <div id="current-weather"  class="border rounded"></div>
-        <div id="fiveDay-forecast" class="mt-6"></div>
-      </div>
+    <div class="card-body" class="row" style="width: 18rem;">
+        <div class="card-body">
+          <h5 id="city" class="card-title"></h5>
+          <p class="card-text">Temperature:<span id="temp"></span></p>
+          <p class="card-text">Humidity:<span id="humid"></span></p>
+          <p class="card-text">Wind Speed:<span id="wind"></span></p>
+          <p class="card-text">UV Index:<span id="uvindex"></span></p>
+        </div>
     </div>
-  </div>
-  
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <!-- moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!-- Custom Script -->
-  <script src="./assets/script.js"></script>
-</body>
-</html>
 
+    <div class="row"> </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
 
 
 
